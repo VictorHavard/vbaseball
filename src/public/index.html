@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+  <title>Virtual Baseball</title>
+  <!-- For the timeline -->
+  <!--
+  <script type="text/javascript" src="//unpkg.com/vis-timeline@latest/standalone/umd/vis-timeline-graph2d.min.js"></script>
+  <link href="//unpkg.com/vis-timeline@latest/styles/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
+  -->
+
+  <!-- For the vbaseball overrides -->
+  <script src="/vbaseball.js"></script>
+  <link rel="stylesheet" href="/vbaseball.css">
+
+  <!-- For the Nav Bar -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body onload="javascript:init()">
+  <!-- Top Nav -->
+
+  <!-- At this point there is no need for both a top nave and a side nav -->
+  <div class="navbar">
+    <a href="#"><button class="openbtn" onclick="toggleSidebar()">☰</button></a>
+    <!-- <a href="#home">Home</a> -->
+    <div class="dropdown">
+      <button class="dropbtn">Role
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">Coach</a>
+        <a href="#">Club Director</a>
+        <a href="#">Parks & Recreation Director</a>
+        <a href="#">Umpiring Organization Manager</a>
+        <a href="#">Tournament Hosting Director</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Side Nav -->
+  <div id="sidebar" class="sidebar">
+<!--    <a href="javascript:void(0)" class=closebtn" onclick="closeSidebar()">x</a> -->
+    <button type="button" class="collapsible">Clubs
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <!-- This list should be pulled from mongo and populated by the app using mustache-express -->
+    <!--
+      Should be a tree view of sanctioning clubs with Age groups, Classifications, and team names under the club name
+    -->
+    <!--
+    <div class="content eventListItem">
+      <input type="checkbox" name="Historical Events" onchange="addEvents('history');" value="history"/>Historial Events<br>
+      <input type="checkbox" name="Bible Books Written" onchange="addEvents('bookswritten');" value="books"/>Bible Books Written<br>
+      <input type="checkbox" name="Bible Books TimeSpan" onchange="addEvents('booksevents');" value="books"/>Bible Books Timespan<br>
+      <input type="checkbox" name="Old Testament Events" onchange="addEvents('otevents');" value="otevents"/>Old Testament Events<br>
+      <input type="checkbox" name="New Testament Events" onchange="addEvents('ntevents');" value="ntevents"/>New Testament Events<br>
+      <input type="checkbox" name="Biblical Characters" onchange="addEvents('characters');" value="characters"/>Biblical Characters<br>
+      <input type="checkbox" name="Prophecies of Daniel" onchange="addEvents('daniel');" value="daniel"/>Prophecies of Daniel<br>
+    </div>
+    -->
+    <button type="button" class="collapsible">Teams
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <!-- This list should be pulled from mongo and populated by the app using mustache-express -->
+    <!--
+    <div class="content eventListItem" id="newEvent" name="newEvent">
+      <form>
+        <label for="name">Name:</label>
+        <input name="name" id="name" type="text" size="28"/></br>
+        <label for="type">Type:</label>
+        <select name="type" id="type" >
+          <option value="birthdate">Birthdate</option>
+          <option value="lived">Lifetime</option>
+          <option value="lived">Era</option>
+          <option value="lived">Event</option>
+          <option value="lived">Timespan</option>
+        </select></br>
+        <label for="epoch">Epoch:</label>
+        <select name="epoch" id="epoch">
+          <option value="ad">AD</option>
+          <option value="bc">BC</option>
+        </select></br>
+        <label for="startdate">Start Date:</label>
+        <input name="startdate" id="startdate" type="text" placeholder="yyyy-mm-dd" pattern="[0-9]{4}-[0-1]?[0-9]-[0-3]?[0-9]" size="10"/></br>
+        <label for="enddate">End Date:</label>
+        <input name="enddate" id="enddate" type="text" placeholder="yyyy-mm-dd" size="10"/></br>
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" rows="4" cols="30" placeholder="Descriptive Text" size="10"></textarea>
+        <label for="source">Source:</label>
+        <textarea name="source" id="source" rows="4" cols="30" placeholder="Source used to determine date(s)." size="10"></textarea>
+        <button type="button" onclick="javascript:newEvent();">Submit
+          <i class="fa fa-floppy-o" aria-hidden="true"></i>
+        </button>
+      </form>
+    </div>
+    -->
+    <button type="button" class="collapsible">Venues
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <!--
+    <div class="content eventListItem" id="newEventGroup" name="newEventGroup">
+      <form>
+        <label for="eventGroupName">Name:</label>
+        <input name="eventGroupName" id="eventGroupName" type="text" size="28"/></br>
+
+        <label for="eventGroupDescription">Description:</label>
+        <textarea name="eventGroupDescription" id="eventGroupDescription" rows="4" cols="30" placeholder="Descriptive Text" size="10"></textarea>
+
+        <button type="button" onclick="javascript:newEventGroup();">Submit
+          <i class="fa fa-floppy-o" aria-hidden="true"></i>
+        </button>
+
+      </form>
+    </div>
+    -->
+    <button type="button" class="collapsible">Umpires
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <!-- </a> -->
+    <!-- 
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+    -->
+  </div>
+
+  <div id="main">
+    <!-- Timelines -->
+    <div id="visualization"></div>
+    <div id="debug" name="debug" class="debug">DEBUG<div>
+  </div>
+
+
+</body>
+</html>
